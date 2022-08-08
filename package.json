@@ -1,0 +1,20 @@
+{
+  "name": "web_diary",
+  "version": "1.0.0",
+  "description": "this is going to be used as a diary where I can track habits and things that I need to get done during that do",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiaranOtter/web_diary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CiaranOtter/web_diary/issues"
+  },
+  "homepage": "https://github.com/CiaranOtter/web_diary#readme"
+}
