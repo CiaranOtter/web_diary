@@ -1,18 +1,13 @@
-document.body.onload = () => {
-    console.log("hello wolrd!")
-    fetch_checklist();
-    load_checklist(activeDay);
-}
-
+import {Checklist, checklist_item} from "./components/checklist.js"
 const homeDir = "http://127.0.0.1:5500/"
+const checklist = new Checklist()
 
 let activeDay = new Date(Date.now())
 
-function load_checklist(date) {
-    console.log(date)
-    console.log(date.getFullYear()+ "/"+date.getMonth()+"/"+date.getDate())
+document.body.onload = () => {
+    console.log("hello wolrd!")
 
-    // activeChecklist
+    checklist.fetchJsonData(`${homeDir}backend/getChecklist.php`)
 }
 
 function fetch_checklist() {
@@ -21,25 +16,7 @@ function fetch_checklist() {
     .then(data => data.json())
     .then(data => {
         console.log(data)
+        checklist.setJsondata(data);
+        checklist.loaditemsfromArray();
     })
 }
-
-class checkllist {
-    constructor(json_checklist) {
-        this.items = [];
-    }
-}
-
-class checklist_items {
-    constructor(json_item) {
-        // setting the name of an item using a the json item
-        this.item_name = json_item['name'];
-        this.item_dateCreated = new Date(json_item['created_date']);
-        this.item_created_month = this.item_dateCreated.getMonth();
-        this.item_created_year = this.item_dateCreated.getFullYear();
-        this.item_created_day = this.item_dateCreated.getDate();
-
-
-    }
-}
-
