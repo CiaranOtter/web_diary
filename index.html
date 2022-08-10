@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Diary</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
     this is a test to build a web diary
@@ -13,6 +14,15 @@
         <h2>things to do today:</h2>
         <input type="checkbox" id="thing_1">
         <label for="thing_1">OS Lab</label>
+    </div>
+
+    <div class="button" onclick >Add a thing</div>
+
+    <div id="add_a_checklist_item">
+        <input id="new_checklist_item_name" type="text" placeholder="name of item">
+        <input id="new_check_item_due_date" type="date">
+        <label for="new_check_item_due_date">Due date: </label>
+        <div id="save_new_checklist_item" class="button">Save this item</div>
     </div>
 </body>
 
