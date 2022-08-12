@@ -1,5 +1,5 @@
 import {Checklist, checklist_item} from "./components/checklist.js"
-const homeDir = "http://localhost:8888/Projects/web_diary/"
+export const homeDir = "http://localhost:8888/Projects/web_diary/"
 const checklist = new Checklist()
 
 let activeDay = new Date(Date.now())
@@ -23,16 +23,16 @@ function saveNewChecklistItem() {
 
     
     console.log(name, dueDate)
-    let jsonArray =
-        {
-            "name": name,
-            "due_date": dueDate,
-            "created_date": createdDate,
-            "completed": false,
-            "completed_date": null
-        };
-    checklist.addItem(jsonArray);
+    let jsonArray = {
+        "name": name,
+        "due_date": dueDate,
+        "created_date": createdDate,
+        "completed": false,
+        "completed_date": null
+    };
 
+    let item = checklist.addItem(jsonArray);
+    item.pushToDB();
 }
 
 document.body.onload = () => {

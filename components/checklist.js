@@ -1,4 +1,4 @@
-
+import {homeDir} from "../index.js";
 export class checklist_item {
     constructor(json_item) {
         // setting the name of an item using a the json item
@@ -25,6 +25,14 @@ export class checklist_item {
         this.item_completed = !!json_item['complete'];
     }
 
+    getName() {
+        return this.item_name;
+    }
+
+    getDue_Date() {
+        return this.item_due;
+    }
+
     getcreatedMonth() {
         return this.item_dateCreated.getMonth();
     }
@@ -45,6 +53,17 @@ export class checklist_item {
         console.log("item complete: "+this.item_completed);
         console.log("item completion date: "+this.item_completion_date);
         console.groupEnd();
+    }
+
+    pushToDB() {
+        console.log(this.getName())
+        let url = homeDir+`backend/addChecklistItem.php?name=${this.getName()}&&due_date=${new Date(this.getDue_Date()).getFullYear()}/${new Date(this.getDue_Date()).getMonth()}/${new Date(this.getDue_Date()).getDate()}`;
+        console.log(url);
+        fetch(homeDir+`backend/addChecklistItem.php?name=${this.name}&&due_date=${new Date(this.due_date).getFullYear()}/${new Date(this.due_date).getMonth()}/${new Date(this.due_date).getDate()}`)
+        .then(data => data.text())
+        .then(data => {
+            console.log(data);
+        });
     }
 }
 
@@ -79,6 +98,7 @@ export class Checklist {
         let newItem = new checklist_item(jsonItem);
         this.items.push(newItem);
         newItem.logItem();
+        return newItem;
     }
 }
 
