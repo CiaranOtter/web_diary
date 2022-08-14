@@ -4,6 +4,8 @@ export class checklist_item {
         // setting the name of an item using a the json item
         this.item_name = json_item['name'];
 
+        this.id = json_item['id'];
+
         // setting the date created of this item using the json data
         this.item_dateCreated = new Date(json_item['created_date']);
 
@@ -25,12 +27,65 @@ export class checklist_item {
         this.item_completed = !!json_item['complete'];
     }
 
+    toggleChecked() {
+        console.log("you have click a check box and here is the associated item:");
+        this.logItem();
+
+        let checked = document.getElementById(`checklist_item_${this.id}`).checked;
+
+        if (checked) {
+            document.getElementById(`cheklist_item_${this.id}_label`).innerHTML = `<strike>${this.item_name}</strike>`;
+
+        } else {
+            document.getElementById(`cheklist_item_${this.id}_label`).innerHTML = `${this.item_name}` 
+        }
+
+        this.updatechecked(checked);
+
+    }
+
+    updatechecked(value) {
+        let url = homeDir + `/updateChecked.php?checked=${value}&&id=${this.id}`;
+
+        fetch(url)
+        .then(data => data.text())
+        .then(data => {
+            console.log(data);
+        })
+    }
+
+    generateItem(parent) {
+        console.log("checklist parent is:", parent, parent.innerhtml)
+
+        let input = document.createElement("input");
+        input.id = `checklist_item_${this.id}`;
+        input.type = "checkbox";
+        input.onclick = () => {
+            console.log("You have clicked an item")
+            this.toggleChecked()
+        }
+        
+        let label = document.createElement("label");
+        label.for = `checklist_item_${this.id}`;
+        label.id = `cheklist_item_${this.id}_label`
+        label.innerHTML = this.item_name;
+
+    
+        parent.appendChild(input);
+        parent.appendChild(label);
+        
+    }
+
     getName() {
         return this.item_name;
     }
 
     getDue_Date() {
         return this.item_due;
+    }
+
+    getcreatedDate() {
+        return this.item_dateCreated;
     }
 
     getcreatedMonth() {
@@ -57,9 +112,9 @@ export class checklist_item {
 
     pushToDB() {
         console.log(this.getName())
-        let url = homeDir+`backend/addChecklistItem.php?name=${this.getName()}&&due_date=${new Date(this.getDue_Date()).getFullYear()}/${new Date(this.getDue_Date()).getMonth()}/${new Date(this.getDue_Date()).getDate()}`;
+        let url = homeDir+`/addChecklistItem.php?name=${this.getName()}&&due_date=${new Date(this.getDue_Date()).getFullYear()}/${new Date(this.getDue_Date()).getMonth()}/${new Date(this.getDue_Date()).getDate()}`;
         console.log(url);
-        fetch(homeDir+`backend/addChecklistItem.php?name=${this.name}&&due_date=${new Date(this.due_date).getFullYear()}/${new Date(this.due_date).getMonth()}/${new Date(this.due_date).getDate()}`)
+        fetch(url)
         .then(data => data.text())
         .then(data => {
             console.log(data);
@@ -71,6 +126,16 @@ export class Checklist {
     constructor() {
         this.items = [];
         this.jsonData;
+    }
+
+    getItemsByDate(date) {
+        tempItems = [];
+        let testDate = new Date(date);
+        this.items.forEach(item => {
+            if (item.getcreatedDate() == testDate) {
+                tempItems.push(item);
+            }
+        })
     }
 
     fetchJsonData(url) {
@@ -98,6 +163,7 @@ export class Checklist {
         let newItem = new checklist_item(jsonItem);
         this.items.push(newItem);
         newItem.logItem();
+        newItem.generateItem(document.getElementById("checklist_parent"));
         return newItem;
     }
 }

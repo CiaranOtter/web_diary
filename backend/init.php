@@ -1,4 +1,9 @@
 <?php
+
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST');
+    header("Access-Control-Allow-Headers: X-Requested-With");
+
     $host = "sql30.cpt3.host-h.net";
     $user = "tectobhjww_22";
     $pass = "f4J1N69PCU59zRaASFB8";

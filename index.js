@@ -1,7 +1,7 @@
 import {Checklist, checklist_item} from "./components/checklist.js"
-export const homeDir = "http://localhost:8888/Projects/web_diary/"
+export const homeDir = "https://sudocode.co.za/Web-diary/backend"
 const checklist = new Checklist()
-
+console.log("the home directory is: ", homeDir)
 let activeDay = new Date(Date.now())
 
 document.getElementById("save_new_checklist_item").addEventListener("click", saveNewChecklistItem);
@@ -38,11 +38,11 @@ function saveNewChecklistItem() {
 document.body.onload = () => {
     console.log("hello wolrd!")
 
-    checklist.fetchJsonData(`${homeDir}backend/getChecklist.php`)
+    checklist.fetchJsonData(`${homeDir}/getChecklist.php`)
 }
 
 function fetch_checklist() {
-    let url = `${homeDir}backend/getChecklist.php`; 
+    let url = `${homeDir}/getChecklist.php`; 
     fetch(url)
     .then(data => data.json())
     .then(data => {
