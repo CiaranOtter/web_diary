@@ -123,19 +123,22 @@ export class checklist_item {
 }
 
 export class Checklist {
-    constructor() {
+    constructor(parent) {
         this.items = [];
         this.jsonData;
+        this.parent = parent;
     }
 
     getItemsByDate(date) {
-        tempItems = [];
-        let testDate = new Date(date);
-        this.items.forEach(item => {
-            if (item.getcreatedDate() == testDate) {
-                tempItems.push(item);
+        this.parent.innerHTML = "";
+        this.items.forEach((item) =>{
+            console.log(item.getcreatedDate(), date)
+            if ((date.getMonth() == item.getcreatedMonth()) && (date.getDate() == item.getcreatedDay())&&(date.getFullYear() == item.getcreatedYear())){
+                console.log("this item has the correct date:")
+                item.logItem();
+                item.generateItem(this.parent);
             }
-        })
+        });
     }
 
     fetchJsonData(url) {
@@ -163,7 +166,6 @@ export class Checklist {
         let newItem = new checklist_item(jsonItem);
         this.items.push(newItem);
         newItem.logItem();
-        newItem.generateItem(document.getElementById("checklist_parent"));
         return newItem;
     }
 }
