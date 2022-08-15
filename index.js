@@ -66,6 +66,12 @@ function saveNewChecklistItem() {
 }
 
 document.body.onload = async () => {
+    fetchChecklist().then(() => {
+        checklist.getItemsByDate(activeDay);
+    })
+    
+}
+
+async function fetchChecklist() {
     await checklist.fetchJsonData(`${homeDir}/getChecklist.php`);
-    checklist.getItemsByDate(activeDay);
 }

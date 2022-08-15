@@ -153,13 +153,13 @@ export class Checklist {
     }
 
     fetchJsonData(url) {
-        fetch(url)
+        return (fetch(url)
         .then(data => data.json())
         .then(jsonArray => {
             console.log("json array results are: ", jsonArray)
             this.setJsondata(jsonArray)
             this.loaditemsfromArray();
-        })
+        }));
     }
 
     setJsondata(jsonArray) {

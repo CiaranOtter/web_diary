@@ -2,6 +2,37 @@
     border: 1px solid red;
 }
 
+.title {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 50px;
+    font-weight: 700;
+    text-decoration: underline overline dotted;
+}
+
+.checklist_container {
+    font-family: 'Roboto', sans-serif;   
+}
+
+.checklist-today-header {
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid red;
+    padding: none;
+    font-size: 30px;
+}
+
 .button:hover {
     background-color: dodgerblue;
+}
+
+.add_a_checklist_item {
+    display: none;
+    flex-direction: column;
+}
+
+.checklist_container {
+    width: 20%;
+    border-radius: 20px;
+    box-shadow: 5px 0px 10px #000000;
 }

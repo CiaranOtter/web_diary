@@ -6,27 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Diary</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    this is a test to build a web diary
+    <div class="title">NANO DIARY</div>
 
     <input type="date" name="active_day" id="active_day">
 
-    <div id="checklist_container">
-        <h2>things to do today:</h2>
+    <div id="checklist_container" class="checklist_container">
+        <div class="checklist-today-header">Today's things</div>
         <div id="checklist_parent">
 
         </div>
+
+        <div class="button" onclick >Add a thing</div>
+
+        <div id="add_a_checklist_item" class="add_a_checklist_item">
+            <input id="new_checklist_item_name" type="text" placeholder="name of item">
+            <input id="new_check_item_due_date" type="date">
+            <label for="new_check_item_due_date">Due date: </label>
+            <div id="save_new_checklist_item" class="button">Save this item</div>
+        </div>
     </div>
 
-    <div class="button" onclick >Add a thing</div>
-
-    <div id="add_a_checklist_item">
-        <input id="new_checklist_item_name" type="text" placeholder="name of item">
-        <input id="new_check_item_due_date" type="date">
-        <label for="new_check_item_due_date">Due date: </label>
-        <div id="save_new_checklist_item" class="button">Save this item</div>
-    </div>
 </body>
 
 <script src="index.js" type="module"></script>
