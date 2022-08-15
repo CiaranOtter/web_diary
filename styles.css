@@ -1,5 +1,23 @@
 .button {
-    border: 1px solid red;
+    border: 1px solid var(--highlight_1);
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--highlight_1);
+}
+
+:root {
+    --primary: #FEFCED;
+    --secondary: #FAF2B5;
+    --tertiary: #F0D200;
+    --highlight_1: #E2B2FF;
+    --hightlight_2: #A767FF;
+}
+
+body {
+    background-color: var(--primary);
+    margin: 0px;
 }
 
 .title {
@@ -11,19 +29,26 @@
 }
 
 .checklist_container {
-    font-family: 'Roboto', sans-serif;   
+    background-color: var(--secondary);
+    border-radius: 20px;
+    box-shadow: 5px 0px 10px -5px var(--highlight_1);
+    padding: 10px 5px;
+}
+
+.checklist_parent {
+    margin: 5px 25px;
 }
 
 .checklist-today-header {
     font-weight: 300;
     text-align: center;
-    border: 1px solid red;
     padding: none;
     font-size: 30px;
+    text-decoration: underline dotted;
 }
 
 .button:hover {
-    background-color: dodgerblue;
+    background-color: var(--hightlight_2);
 }
 
 .add_a_checklist_item {
@@ -31,8 +56,22 @@
     flex-direction: column;
 }
 
-.checklist_container {
-    width: 20%;
-    border-radius: 20px;
-    box-shadow: 5px 0px 10px #000000;
+.button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-body-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.entry-container {
+    flex: 60%;
+}
+
+.checklist-side-container {
+    flex: 15%;
+    margin: 5px 20px;
 }

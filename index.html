@@ -9,29 +9,75 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="title">NANO DIARY</div>
 
     <input type="date" name="active_day" id="active_day">
 
-    <div id="checklist_container" class="checklist_container">
-        <div class="checklist-today-header">Today's things</div>
-        <div id="checklist_parent">
+    <div id="main-body-container" class="main-body-container">
+        <div id="checklist-side-container" class="checklist-side-container">
+            <div id="checklist_container" class="checklist_container">
+                <div class="checklist-today-header">Today's things</div>
+                <div id="checklist_parent" class="checklist_parent">
 
+                </div>
+
+                <div class="button" id="add_checklist_item_button">Add</div>
+
+                <div id="add_a_checklist_item" class="add_a_checklist_item">
+                    <input id="new_checklist_item_name" type="text" placeholder="name of item">
+                    <input id="new_check_item_due_date" type="date">
+                    <label for="new_check_item_due_date">Due date: </label>
+                    <div class="button-container"><div id="save_new_checklist_item" class="button">Save this item</div><div id="close_checklist_item_button" class="close-button button">close</div></div>
+                    
+                </div>
+            </div>
         </div>
 
-        <div class="button" onclick >Add a thing</div>
+        <div id="entry-container" class="entry-container">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit commodo lacus, ut blandit ligula elementum auctor. Suspendisse potenti. Donec mauris augue, vestibulum in porttitor in, convallis vel justo. Sed in blandit odio. Aenean egestas diam finibus sollicitudin mollis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla vitae ultrices ante. Nunc ligula eros, viverra a risus vel, auctor rhoncus justo. Vivamus auctor ligula felis, sit amet varius felis feugiat a. Curabitur sollicitudin libero vel lectus gravida lobortis. Sed fringilla sem id mi feugiat, vel dapibus enim mollis. Sed vel accumsan libero, eget varius mauris. Phasellus volutpat, tortor in mollis consectetur, risus nunc blandit dolor, vel ultricies diam dolor a neque. Phasellus ex nisi, facilisis ac metus non, eleifend lobortis erat. Aliquam erat volutpat.
 
-        <div id="add_a_checklist_item" class="add_a_checklist_item">
-            <input id="new_checklist_item_name" type="text" placeholder="name of item">
-            <input id="new_check_item_due_date" type="date">
-            <label for="new_check_item_due_date">Due date: </label>
-            <div id="save_new_checklist_item" class="button">Save this item</div>
+Pellentesque non orci non justo eleifend suscipit eget commodo justo. Aenean pretium nulla vitae volutpat imperdiet. Sed laoreet molestie ipsum in efficitur. Nulla sapien augue, commodo et eleifend et, rutrum nec est. Vivamus quis ex eget lorem ullamcorper posuere. Ut eget risus risus. Proin lacinia nisi vitae laoreet varius. Phasellus molestie sagittis porttitor. Phasellus ut facilisis mi, eu gravida odio. Sed fermentum eget sapien ultricies posuere. Vivamus id finibus nunc.
+
+Vivamus consequat sit amet nisi accumsan dictum. Nunc sed pretium sapien, ut laoreet ex. Nunc eget tortor accumsan, ultricies odio non, pellentesque purus. Nunc fermentum quam bibendum sagittis pellentesque. Mauris erat enim, lacinia id commodo sed, aliquam vel quam. Donec quis rhoncus nibh, tristique facilisis nisl. Aenean iaculis dolor dictum, imperdiet odio eu, efficitur arcu.
+
+Fusce efficitur mollis elit, non vehicula risus auctor at. Mauris felis purus, fringilla non lectus non, cursus convallis nibh. Donec sapien magna, mollis ut maximus ac, condimentum ac nunc. Vivamus id risus massa. Vestibulum hendrerit luctus elit, vel condimentum tortor mattis ut. Proin massa quam, rutrum vel tincidunt in, aliquam sed lacus. Donec dui enim, suscipit sit amet felis ut, volutpat porttitor enim. Mauris in tellus dolor.
+
+Duis orci felis, ullamcorper a odio auctor, finibus auctor risus. Etiam maximus fermentum augue, quis consectetur nulla. Maecenas vehicula ex leo, commodo tempor lacus scelerisque eget. Pellentesque facilisis pharetra nulla, quis scelerisque nisl vestibulum vitae. Proin id pharetra enim. Proin tortor sapien, molestie sit amet imperdiet eget, rhoncus in dolor. Nulla mollis id neque tincidunt tempor. Etiam eget urna ut ipsum aliquet dignissim. Ut dapibus est quis consectetur malesuada. Donec malesuada, orci nec congue porta, sem dolor viverra leo, eu condimentum odio risus vel nulla. Duis mollis varius massa quis ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas semper quam nec ultricies sodales.
+
+Aliquam sit amet mi condimentum, placerat ex egestas, dapibus orci. Fusce eu eros id dui dignissim faucibus. Nunc sit amet efficitur neque. Cras et est eu elit mattis pulvinar feugiat et leo. Nullam a eros nibh. Ut at varius ligula. Aenean vehicula sollicitudin sapien. Donec aliquet molestie cursus. Curabitur eu malesuada nisl. Nam eu magna sit amet nulla gravida accumsan. Sed tincidunt pretium lacus, sed vestibulum mauris semper quis. Suspendisse semper dui ex, quis rutrum mauris bibendum sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum urna metus, ultricies a condimentum ac, molestie id arcu.
+
+Fusce non interdum mi. Etiam massa libero, venenatis eget consequat at, euismod id elit. Aliquam vel libero tristique, rutrum tortor sed, interdum dui. Morbi eu tellus vitae turpis dictum cursus a ut sem. Phasellus et dapibus nisi. Proin mattis blandit cursus. Nunc cursus arcu at nulla ultricies, at ultrices libero interdum. Phasellus egestas vehicula ex, nec condimentum mi pellentesque ut.
+
+Donec interdum at urna eget congue. Ut ac accumsan purus. Sed pharetra neque non scelerisque lobortis. Proin et eros eget libero iaculis porta. Sed mattis, neque eu egestas mollis, nisl nisl maximus risus, ultricies blandit massa ipsum ac lacus. Vivamus elementum tempus enim, quis volutpat mi laoreet in. Vivamus tincidunt fermentum ligula, nec volutpat turpis.
+
+Fusce magna neque, interdum nec odio eget, molestie dignissim enim. Praesent hendrerit leo sollicitudin iaculis auctor. Nullam placerat, libero et egestas pharetra, tortor sem dictum dui, vehicula tempus lorem magna eu magna. Fusce eleifend in tortor id dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sollicitudin pretium sem vitae aliquet. Proin vel ligula non mauris auctor malesuada ac ac orci. In quis interdum erat, et tristique justo. Cras id ultrices quam, nec semper sapien. Quisque velit diam, viverra vel urna eu, vestibulum euismod nibh. Sed molestie, odio vel malesuada consequat, libero massa sagittis elit, at aliquet ex ipsum vel ligula. Maecenas tristique lorem non mi euismod, fermentum dignissim orci rhoncus.
+
+Duis quam eros, eleifend quis feugiat sit amet, auctor id sem. Integer cursus auctor diam, vitae faucibus felis condimentum a. Phasellus scelerisque malesuada urna, vel elementum lectus rhoncus ac. Phasellus pharetra nibh ultrices elementum laoreet. In vestibulum risus augue, quis faucibus urna tincidunt id. Vestibulum lacinia magna risus, id sollicitudin magna pellentesque sed. Aenean erat nibh, viverra quis ex et, gravida rhoncus libero. Nulla a sodales lorem. Donec id dignissim velit.
+
+Phasellus tempus porttitor augue, a condimentum mauris dignissim id. Vestibulum at sollicitudin tortor. Quisque imperdiet mauris vitae felis ornare, ac porttitor orci volutpat. Duis vel justo quis purus aliquet efficitur at sit amet diam. In consectetur faucibus velit, eget tincidunt tortor finibus non. Nam consequat sagittis orci, rutrum iaculis quam maximus in. Maecenas feugiat, justo ut imperdiet imperdiet, sapien enim mollis velit, ac luctus odio ex eu tortor. Cras et malesuada dui. Duis imperdiet rutrum ante, nec facilisis dolor fringilla sit amet. Praesent fringilla metus sit amet erat faucibus, ut suscipit enim rhoncus. Quisque finibus, nulla et sagittis maximus, nibh odio iaculis nunc, id tempus massa nulla in tellus. Quisque eleifend vitae metus non rutrum. Nullam non tempor mauris. Aenean bibendum euismod mauris molestie feugiat. Ut tincidunt elit et dolor tincidunt rhoncus. In fringilla quam mauris, vitae maximus tellus imperdiet nec.
+
+Pellentesque iaculis cursus magna sit amet venenatis. Nam mauris elit, convallis sed est quis, ullamcorper placerat est. Vivamus imperdiet magna eu pretium venenatis. Integer semper lorem mollis vehicula rutrum. Suspendisse vulputate sed nulla non ultrices. Quisque in hendrerit quam. Phasellus ornare interdum ipsum eu lobortis. In vitae diam diam.
+
+Etiam auctor neque augue, malesuada venenatis eros ullamcorper condimentum. Aenean bibendum arcu sit amet orci accumsan mollis. Morbi feugiat mi quis ultrices pretium. In sit amet sagittis quam. Nunc aliquet arcu at nisl tincidunt, non dictum massa tincidunt. Aliquam erat volutpat. Vestibulum risus felis, interdum ut accumsan in, lacinia eu arcu. Maecenas ac mi quis nibh lacinia lacinia. Fusce quis posuere arcu, nec consequat eros. Vestibulum eget porta lorem, quis sollicitudin lorem.
+
+Cras quis lectus consequat, eleifend magna a, dictum sem. Aliquam quis ex libero. Aenean eleifend arcu et risus rutrum eleifend. Nullam id venenatis mauris. Etiam at feugiat ipsum, quis pretium enim. Sed dictum vel enim sit amet sodales. Aenean vulputate, libero sed pharetra finibus, velit est porta velit, quis lacinia felis mi eget tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vel tincidunt nunc. Praesent vestibulum tempor odio ut vulputate. Sed nec egestas nulla.
+
+Sed vel scelerisque est, nec tempus nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus a bibendum dui. Maecenas fringilla interdum accumsan. Quisque nec lacus mollis, vehicula libero a, faucibus sapien. Aliquam varius convallis ex, mollis accumsan nulla. Ut efficitur tempus nisl. Mauris viverra finibus felis. Nam finibus metus ac augue ultrices, sed tincidunt sem mattis. Sed ultricies et nibh a venenatis. Cras vehicula pulvinar sem, in finibus nibh sodales et. Fusce eget interdum purus. Phasellus mauris ligula, venenatis in ultricies vitae, pharetra eu nulla. Nunc nec eros volutpat, gravida turpis vitae, bibendum est.
+
+Nam et magna volutpat, malesuada elit sed, dapibus nisl. Sed consectetur nec lectus vitae bibendum. Aliquam vel orci sed ante sagittis fringilla. Phasellus accumsan purus in dui feugiat sagittis. Nunc dignissim ex libero. Suspendisse euismod erat non nunc tincidunt, vel tincidunt purus euismod. Duis sit amet orci eu elit lacinia tempor rhoncus sit amet dolor.
+
+Vestibulum mollis tellus non erat mattis, vitae venenatis diam suscipit. Pellentesque ullamcorper erat in libero aliquam, rhoncus posuere sem commodo. Pellentesque quis varius nisi. Vivamus viverra semper nulla, et ultricies nisi interdum non. Aenean ac nulla tempor, efficitur purus vitae, cursus sapien. Donec a sapien at nunc lacinia venenatis quis non ex. Vestibulum quis orci a mi iaculis accumsan. Donec pulvinar dictum diam in volutpat. Vivamus volutpat tristique arcu at rhoncus. Praesent vitae blandit diam, in aliquam urna. Aenean fringilla fermentum velit, volutpat vehicula justo. Morbi rutrum turpis eu elit sollicitudin fermentum. Sed ipsum dui, fermentum eget egestas in, tincidunt sit amet lacus. Donec ullamcorper rhoncus maximus. Integer ac hendrerit nulla.
+
+Morbi tincidunt nulla et magna varius, in vulputate odio sagittis. Nunc fringilla velit dolor, a laoreet odio auctor at. Etiam suscipit odio luctus nulla viverra cursus. Pellentesque vestibulum non urna ut dictum. Phasellus vulputate ex ut lacus aliquam, vel dictum diam egestas. Fusce tristique dapibus quam eu ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus rutrum finibus dictum. Donec magna ipsum, tempus vel sollicitudin non, auctor tincidunt odio. Etiam vitae congue justo. Etiam tortor lectus, mollis eget congue ac, rutrum eu enim.
+
+Vivamus augue metus, fermentum a auctor et, luctus a ex. Etiam laoreet leo risus, non ultricies tortor pellentesque tempor. In luctus posuere est ut dignissim. Donec dignissim ultrices tortor, quis ultricies urna efficitur vitae. Nunc ullamcorper dolor sit amet ipsum semper, a dignissim dolor congue. Pellentesque elementum ornare pretium. Proin malesuada est eu dictum ultrices. In hac habitasse platea dictumst. Nam a dignissim mi. Curabitur dictum ante et magna maximus, id laoreet orci molestie. Proin sit amet justo quis mauris sollicitudin luctus.
+
+Etiam imperdiet vestibulum ornare. Fusce pulvinar odio a aliquet gravida. In sodales et lacus in blandit. Maecenas feugiat, nunc et rhoncus imperdiet, risus urna pellentesque odio, vel gravida sem velit non tellus. Phasellus mattis eros nec lorem tincidunt ultricies. Mauris accumsan, magna et laoreet porta, diam erat cursus quam, quis fringilla nisi tellus eu neque. Vestibulum quis ipsum ullamcorper, lacinia leo nec, elementum ligula. Integer viverra ac metus at aliquet. Phasellus scelerisque dui velit, eget blandit sem tempus et. Maecenas nec quam eget sapien laoreet finibus a nec lorem. Aliquam in vehicula nibh, vel fringilla erat. In at facilisis diam, ut mattis justo. Vestibulum consectetur sodales est, id semper erat pulvinar a. Etiam et nulla eget ante volutpat imperdiet vel id odio.
         </div>
     </div>
-
 </body>
 
 <script src="index.js" type="module"></script>

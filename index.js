@@ -5,6 +5,15 @@ export const homeDir = "https://sudocode.co.za/Web-diary/backend"
 // create a new instance of the checklist
 const checklist = new Checklist(document.getElementById("checklist_parent"));
 
+document.getElementById("add_checklist_item_button").addEventListener("click", () => {
+    document.getElementById("add_a_checklist_item").style.display = "flex";
+    document.getElementById("add_checklist_item_button").style.display = "none";
+});
+
+document.getElementById("close_checklist_item_button").addEventListener("click", () => {
+    document.getElementById("add_a_checklist_item").style.display = "none";
+    document.getElementById("add_checklist_item_button").style.display = "block";
+})
 // setting the active day of the diary to today
 let activeDay = new Date();
 let activeDayPicker = document.getElementById("active_day");
@@ -63,6 +72,9 @@ function saveNewChecklistItem() {
     let item = checklist.addItem(jsonArray);
     item.pushToDB();
     checklist.getItemsByDate(activeDay);
+
+    document.getElementById("add_a_checklist_item").style.display = "none";
+    document.getElementById("add_checklist_item_button").style.display = "block";
 }
 
 document.body.onload = async () => {
