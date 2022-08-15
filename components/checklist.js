@@ -25,6 +25,8 @@ export class checklist_item {
         // setting the boolean value for completion
 
         this.item_completed = !!json_item['complete'];
+
+        this.item_bgColor = json_item['background_color'];
     }
 
     toggleChecked() {
@@ -57,6 +59,13 @@ export class checklist_item {
     generateItem(parent) {
         console.log("checklist parent is:", parent, parent.innerhtml)
 
+        let container = document.createElement('div');
+
+        if (this.item_bgColor != null){
+            container.style.backgroundColor = this.item_bgColor;
+        }
+        
+
         let input = document.createElement("input");
         input.id = `checklist_item_${this.id}`;
         input.type = "checkbox";
@@ -71,9 +80,10 @@ export class checklist_item {
         label.innerHTML = this.item_name;
 
     
-        parent.appendChild(input);
-        parent.appendChild(label);
-        
+        container.appendChild(input);
+        container.appendChild(label);
+
+        parent.appendChild(container);
     }
 
     getName() {
@@ -131,6 +141,7 @@ export class Checklist {
 
     getItemsByDate(date) {
         this.parent.innerHTML = "";
+        console.log(`fetching the checklist items that match the date ${date}`)
         this.items.forEach((item) =>{
             console.log(item.getcreatedDate(), date)
             if ((date.getMonth() == item.getcreatedMonth()) && (date.getDate() == item.getcreatedDay())&&(date.getFullYear() == item.getcreatedYear())){
@@ -153,7 +164,7 @@ export class Checklist {
 
     setJsondata(jsonArray) {
         this.jsonData = jsonArray;
-        console.log("json data has been set to ")
+        console.log("json data or checklist has been set")
     }
 
     loaditemsfromArray() {

@@ -9,19 +9,19 @@ const checklist = new Checklist(document.getElementById("checklist_parent"));
 let activeDay = new Date();
 let activeDayPicker = document.getElementById("active_day");
 setFormattedDate(activeDay, activeDayPicker);
+
 activeDayPicker.addEventListener("input", (e) => {
     activeDay = new Date(activeDayPicker.value); 
     console.log(e)
     console.log(activeDay);
     checklist.getItemsByDate(activeDay);
 })
-checklist.getItemsByDate(activeDay);
 
 document.getElementById("save_new_checklist_item").addEventListener("click", saveNewChecklistItem);
 
 function setFormattedDate(date, object) {
     let year = date.getFullYear();
-    let month = date.getMonth();
+    let month = date.getMonth()+1;
     let day = date.getDate();
 
     let formdate = "";
@@ -65,6 +65,7 @@ function saveNewChecklistItem() {
     checklist.getItemsByDate(activeDay);
 }
 
-document.body.onload = () => {
-    checklist.fetchJsonData(`${homeDir}/getChecklist.php`)
+document.body.onload = async () => {
+    await checklist.fetchJsonData(`${homeDir}/getChecklist.php`);
+    checklist.getItemsByDate(activeDay);
 }
