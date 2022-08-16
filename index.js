@@ -3,7 +3,7 @@ import {Checklist, checklist_item} from "./components/checklist.js"
 //make the know directory of the backend available to the whole project
 export const homeDir = "https://sudocode.co.za/Web-diary/backend"
 // create a new instance of the checklist
-const checklist = new Checklist(document.getElementById("checklist_parent"));
+const checklist = new Checklist(document.getElementById("checklist_parent"), document.getElementById("checklist_due_parent"));
 
 document.getElementById("add_checklist_item_button").addEventListener("click", () => {
     document.getElementById("add_a_checklist_item").style.display = "flex";
@@ -16,7 +16,7 @@ document.getElementById("close_checklist_item_button").addEventListener("click",
 })
 // setting the active day of the diary to today
 let activeDay = new Date();
-let activeDayPicker = document.getElementById("active_day");
+export const activeDayPicker = document.getElementById("active_day");
 setFormattedDate(activeDay, activeDayPicker);
 
 activeDayPicker.addEventListener("input", (e) => {
@@ -80,6 +80,7 @@ function saveNewChecklistItem() {
 document.body.onload = async () => {
     fetchChecklist().then(() => {
         checklist.getItemsByDate(activeDay);
+        checklist.getItemsByDueDate();
     })
     
 }

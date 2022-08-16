@@ -1,4 +1,4 @@
-import {homeDir} from "../index.js";
+import {homeDir, activeDayPicker} from "../index.js";
 export class checklist_item {
     constructor(json_item) {
         // setting the name of an item using a the json item
@@ -56,7 +56,7 @@ export class checklist_item {
         })
     }
 
-    generateItem(parent) {
+    generateCheckItem(parent) {
         console.log("checklist parent is:", parent, parent.innerhtml)
 
         let container = document.createElement('div');
@@ -86,12 +86,61 @@ export class checklist_item {
         parent.appendChild(container);
     }
 
+    generateDateItem(parent) {
+        console.log("checklist parent is:", parent, parent.innerhtml)
+
+        let container = document.createElement('div');
+
+        if (this.item_bgColor != null){
+            container.style.backgroundColor = this.item_bgColor;
+        }
+        
+        let label = document.createElement("div");
+        // label.for = `checklist_item_${this.id}`;
+        label.id = `due_cheklist_item_${this.id}_label`
+        label.innerHTML = this.item_name;
+
+        let date = document.createElement("div");
+        date.id = `due_checklist_item_${this.id}_date`;
+        if (this.hasDueDate()) {
+            date.innerHTML = `${this.getDueDateDay()}-${this.getDueDateMonth()}-${this.getDueDateFullYear()}`;
+        } else {
+            date.innerHTML = "This item has no due date";
+        }
+        
+        date.classList.add("due_checklist_date")
+    
+        container.appendChild(label);
+        container.appendChild(date);
+
+        parent.appendChild(container);
+    }
+
     getName() {
         return this.item_name;
     }
 
-    getDue_Date() {
+    hasDueDate() {
+        if (this.getDueDate() != null){
+            return true;
+        } 
+
+        return false;
+    }
+    getDueDate() {
         return this.item_due;
+    }
+
+    getDueDateDay() {
+        return this.item_due.getDate();
+    }
+
+    getDueDateMonth() {
+        return this.item_due.getMonth();
+    }
+
+    getDueDateFullYear() {
+        return this.item_due.getFullYear();
     }
 
     getcreatedDate() {
@@ -122,7 +171,7 @@ export class checklist_item {
 
     pushToDB() {
         console.log(this.getName())
-        let url = homeDir+`/addChecklistItem.php?name=${this.getName()}&&due_date=${new Date(this.getDue_Date()).getFullYear()}/${new Date(this.getDue_Date()).getMonth()}/${new Date(this.getDue_Date()).getDate()}`;
+        let url = homeDir+`/addChecklistItem.php?name=${this.getName()}&&due_date=${new Date(this.getDueDateFullYear())}/${this.getDueDateMonth()}/${this.getDueDateDay()}`;
         console.log(url);
         fetch(url)
         .then(data => data.text())
@@ -133,13 +182,15 @@ export class checklist_item {
 }
 
 export class Checklist {
-    constructor(parent) {
+    constructor(parent, due_parent) {
         this.items = [];
         this.jsonData;
         this.parent = parent;
+        this.due_parent = due_parent;
     }
 
     getItemsByDate(date) {
+        let count = 0;
         this.parent.innerHTML = "";
         console.log(`fetching the checklist items that match the date ${date}`)
         this.items.forEach((item) =>{
@@ -147,8 +198,31 @@ export class Checklist {
             if ((date.getMonth() == item.getcreatedMonth()) && (date.getDate() == item.getcreatedDay())&&(date.getFullYear() == item.getcreatedYear())){
                 console.log("this item has the correct date:")
                 item.logItem();
-                item.generateItem(this.parent);
+                item.generateCheckItem(this.parent);
+                count++;
             }
+        });
+
+        if (count == 0) {
+            this.parent.innerHTML = "<div style='text-align: center; color: #6A706E'>You have nothing due for today."
+        }
+    }
+
+    sortItemsByDueDate() {
+        this.due_parent.innerHTML = "";
+        console.log("fetching checklist items in due date order");
+        this.items.sort((a,b) => {
+            return a.due_date - b.due_date;
+        });
+    }
+
+    getItemsByDueDate() {
+        this.sortItemsByDueDate();
+        
+        this.items.forEach(item => {
+            console.log("fetching checklist items in due sate order");
+            item.logItem();
+            item.generateDateItem(this.due_parent);      
         });
     }
 

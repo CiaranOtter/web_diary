@@ -12,6 +12,20 @@
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="add_a_checklist_item" class="add_a_checklist_item">
+        <h2> Add a new checklsit item for today</h2>
+
+        <input id="new_checklist_item_name" type="text" placeholder="name of item">
+        <label for="new_check_item_due_date">Due date: </label>
+        <input id="new_check_item_due_date" type="date">
+        
+        <input type="text" placeholder="description (optional)">
+
+        <div class="button-container"><div id="save_new_checklist_item" class="button">Save this item</div><div id="close_checklist_item_button" class="close-button button">close</div></div>
+
+    </div>
+
     <div class="title">NANO DIARY</div>
 
     <input type="date" name="active_day" id="active_day">
@@ -19,19 +33,18 @@
     <div id="main-body-container" class="main-body-container">
         <div id="checklist-side-container" class="checklist-side-container">
             <div id="checklist_container" class="checklist_container">
-                <div class="checklist-today-header">Today's things</div>
+                <div class="checklist-header">Today's things</div>
                 <div id="checklist_parent" class="checklist_parent">
 
                 </div>
 
                 <div class="button" id="add_checklist_item_button">Add</div>
+            </div>
 
-                <div id="add_a_checklist_item" class="add_a_checklist_item">
-                    <input id="new_checklist_item_name" type="text" placeholder="name of item">
-                    <input id="new_check_item_due_date" type="date">
-                    <label for="new_check_item_due_date">Due date: </label>
-                    <div class="button-container"><div id="save_new_checklist_item" class="button">Save this item</div><div id="close_checklist_item_button" class="close-button button">close</div></div>
-                    
+            <div id="due_checklist_container" class="checklist_container">
+                <div class="checklist-header">Up coming due dates</div>
+
+                <div id="checklist_due_parent" class="checklist_parent">
                 </div>
             </div>
         </div>

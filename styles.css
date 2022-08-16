@@ -13,6 +13,7 @@
     --tertiary: #F0D200;
     --highlight_1: #E2B2FF;
     --hightlight_2: #A767FF;
+    --shadow: #6A706E;
 }
 
 body {
@@ -31,15 +32,25 @@ body {
 .checklist_container {
     background-color: var(--secondary);
     border-radius: 20px;
-    box-shadow: 5px 0px 10px -5px var(--highlight_1);
+    box-shadow: 5px 0px 10px -5px var(--shadow);
     padding: 10px 5px;
+    margin: 10px 0px;
 }
 
 .checklist_parent {
     margin: 5px 25px;
 }
 
-.checklist-today-header {
+.due_checklist_date {
+    color: var(--shaodw);
+    padding-left: 10px;
+}
+
+.due_checklist_date:hover {
+    color: var(--hightlight_2);
+}
+
+.checklist-header {
     font-weight: 300;
     text-align: center;
     padding: none;
@@ -54,6 +65,14 @@ body {
 .add_a_checklist_item {
     display: none;
     flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px -5px var(--shadow);
 }
 
 .button-container {
